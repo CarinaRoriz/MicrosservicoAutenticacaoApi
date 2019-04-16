@@ -17,17 +17,16 @@ namespace MicrosservicoAutenticacaoApi.Controllers
         {
             listaUsuarios = new List<Usuario>
             {
-                new Usuario { Id = 1, Nome = "Carina" },
-                new Usuario { Id = 2, Nome = "Renato" }
+                new Usuario { Login = "carina", Senha = "abc123!" }
             };
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<bool>> ValidaUsuario(long id)
+        [HttpPost]
+        public async Task<ActionResult<bool>> ValidaUsuario(Usuario usuario)
         {
-            var usuario = listaUsuarios.Where(l => l.Id == id).FirstOrDefault();
+            var usuarioEncontrado = listaUsuarios.Where(l => l.Login == usuario.Login && l.Senha == usuario.Senha).FirstOrDefault();
 
-            if (usuario == null)
+            if (usuarioEncontrado == null)
             {
                 return NotFound();
             }
