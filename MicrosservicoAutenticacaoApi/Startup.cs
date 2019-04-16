@@ -32,7 +32,7 @@ namespace MicrosservicoAutenticacaoApi
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info() { Title = "MicrosservicoApi", Version = "v1" });
+                c.SwaggerDoc("v1", new Info() { Title = "MicrosservicoAutenticacaoApi", Version = "v1" });
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, "MicrosservicoAutenticacaoApi.xml");
